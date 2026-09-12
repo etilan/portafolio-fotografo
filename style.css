@@ -1,70 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0d0d0d;
-  color: white;
-}
-
-
-/* NAVBAR */
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 25px 8%;
-
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(10px);
-
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 18px;
-  letter-spacing: 4px;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-end;
+  position: relative;
 
-  padding: 0 8% 8%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 120px 8% 70px;
 
   background:
     linear-gradient(
-      rgba(0,0,0,0.15),
-      rgba(0,0,0,0.72)
+      90deg,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.18) 55%,
+      rgba(0, 0, 0, 0.45) 100%
     ),
     url("images/DSC03053.jpeg");
 
@@ -74,229 +28,135 @@ body {
 
 .hero-content {
   width: 100%;
+  max-width: 620px;
 }
 
-.brand {
-  position: absolute;
-  top: 110px;
-  left: 8%;
-}
+.hero-label {
+  margin-bottom: 24px;
 
-.signature {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: clamp(42px, 7vw, 82px);
-  line-height: 0.8;
-}
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 7px;
 
-.studio {
-  margin-top: 14px;
-  margin-left: 8px;
-
-  font-size: 11px;
-  letter-spacing: 8px;
-}
-
-.hero-text {
-  max-width: 700px;
-}
-
-.eyebrow {
-  margin-bottom: 18px;
-
-  font-size: 11px;
-  letter-spacing: 6px;
-
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.9);
 }
 
 .hero h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  margin: 0 0 25px;
 
-  font-size: clamp(55px, 9vw, 110px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(65px, 7vw, 105px);
+  font-weight: 700;
   line-height: 0.88;
+  letter-spacing: -4px;
 
-  font-weight: 400;
-
-  margin-bottom: 30px;
+  color: white;
 }
 
 .hero-description {
-  max-width: 420px;
-
-  font-size: 15px;
-  line-height: 1.7;
-
-  color: rgba(255,255,255,0.72);
+  max-width: 450px;
 
   margin-bottom: 35px;
+
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: rgba(255,255,255,0.82);
 }
 
-.explore-link {
+.hero-button {
+  width: 235px;
+  height: 66px;
+
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: white;
+  color: #111;
+
+  text-decoration: none;
+  font-size: 16px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  background: #ededed;
+}
+
+.arrow {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.scroll-down {
+  position: absolute;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
   color: white;
   text-decoration: none;
 
-  font-size: 11px;
-  letter-spacing: 5px;
+  font-size: 28px;
+  font-weight: 200;
 
-  border-bottom: 1px solid rgba(255,255,255,0.5);
-
-  padding-bottom: 8px;
+  opacity: 0.8;
 }
+
+
+/* =========================
+   HERO — MOBILE
+========================= */
 
 @media (max-width: 768px) {
 
   .hero {
-    min-height: 100svh;
-    padding: 0 7% 10%;
-    background-position: 58% center;
+    align-items: center;
+
+    padding:
+      120px
+      7%
+      70px;
+
+    background-position: 52% center;
   }
 
-  .brand {
-    top: 95px;
-    left: 7%;
+  .hero-content {
+    max-width: 100%;
   }
 
-  .signature {
-    font-size: 50px;
-  }
-
-  .studio {
-    font-size: 9px;
-    letter-spacing: 6px;
+  .hero-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
   }
 
   .hero h2 {
-    font-size: 58px;
+    font-size: clamp(54px, 16vw, 75px);
+    letter-spacing: -3px;
+    line-height: 0.9;
   }
 
   .hero-description {
-    max-width: 290px;
-  }
-}
+    max-width: 330px;
 
-
-/* BUTTON */
-
-.button {
-  display: inline-block;
-
-  padding: 14px 26px;
-
-  border: 1px solid white;
-
-  color: white;
-  text-decoration: none;
-
-  transition: 0.3s;
-}
-
-.button:hover {
-  background: white;
-  color: black;
-}
-
-
-/* SECTIONS */
-
-.portfolio,
-.about,
-.contact {
-  padding: 120px 8%;
-}
-
-.portfolio h2,
-.about h2,
-.contact h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.section-description {
-  color: #aaa;
-  margin-bottom: 50px;
-}
-
-
-/* GALLERY */
-
-.gallery {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 15px;
-}
-
-.photo-placeholder {
-  height: 450px;
-
-  background: #1b1b1b;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: #555;
-}
-
-
-/* ABOUT */
-
-.about {
-  max-width: 900px;
-}
-
-.about p {
-  color: #bbb;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-
-/* CONTACT */
-
-.contact {
-  text-align: center;
-}
-
-.contact p {
-  margin-bottom: 30px;
-  color: #aaa;
-}
-
-
-/* FOOTER */
-
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #666;
-  font-size: 13px;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-  .nav-links {
-    display: none;
+    font-size: 15px;
   }
 
-  .hero {
-    padding: 0 6%;
-  }
+  .hero-button {
+    width: 210px;
+    height: 60px;
 
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio,
-  .about,
-  .contact {
-    padding: 90px 6%;
+    font-size: 15px;
   }
 
 }
