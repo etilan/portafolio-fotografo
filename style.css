@@ -1,72 +1,208 @@
-/* =========================
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0b0b0b;
+  color: #ffffff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+
+/* ========================================
    HERO
-========================= */
+======================================== */
 
 .hero {
   position: relative;
 
+  width: 100%;
   min-height: 100vh;
   min-height: 100svh;
 
   display: flex;
   align-items: center;
 
-  padding: 120px 8% 70px;
+  overflow: hidden;
 
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.58) 0%,
-      rgba(0, 0, 0, 0.18) 55%,
-      rgba(0, 0, 0, 0.45) 100%
+      rgba(0, 0, 0, 0.62) 0%,
+      rgba(0, 0, 0, 0.25) 45%,
+      rgba(0, 0, 0, 0.48) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      transparent 40%
     ),
     url("images/DSC03053.jpeg");
 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
 }
 
-.hero-content {
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.navbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
   width: 100%;
-  max-width: 620px;
+
+  padding: 36px 4%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 10;
 }
+
+
+.logo {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  letter-spacing: 6px;
+}
+
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 42px;
+}
+
+
+.nav-links a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  padding-bottom: 10px;
+}
+
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: white;
+
+  transition: width 0.25s ease;
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 650px;
+
+  margin-left: 4%;
+
+  padding-top: 70px;
+
+  z-index: 2;
+}
+
 
 .hero-label {
   margin-bottom: 24px;
 
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 7px;
+  font-size: 13px;
+  font-weight: 400;
 
-  color: rgba(255,255,255,0.9);
+  letter-spacing: 8px;
+
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.hero h2 {
-  margin: 0 0 25px;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(65px, 7vw, 105px);
-  font-weight: 700;
+.hero h1 {
+  margin-bottom: 26px;
+
+  font-size: clamp(70px, 6.7vw, 108px);
+
   line-height: 0.88;
-  letter-spacing: -4px;
+
+  letter-spacing: -5px;
+
+  font-weight: 700;
 
   color: white;
 }
 
-.hero-description {
-  max-width: 450px;
 
-  margin-bottom: 35px;
+.hero-description {
+  max-width: 470px;
+
+  margin-bottom: 36px;
 
   font-size: 18px;
-  line-height: 1.5;
 
-  color: rgba(255,255,255,0.82);
+  line-height: 1.45;
+
+  color: rgba(255, 255, 255, 0.82);
 }
 
+
+/* ========================================
+   BUTTON
+======================================== */
+
 .hero-button {
-  width: 235px;
-  height: 66px;
+  width: 240px;
+  height: 67px;
 
   padding: 0 28px;
 
@@ -74,89 +210,207 @@
   align-items: center;
   justify-content: space-between;
 
-  background: white;
-  color: #111;
+  background: #ffffff;
+  color: #111111;
 
   text-decoration: none;
+
   font-size: 16px;
+  font-weight: 400;
 
   transition:
     transform 0.25s ease,
     background 0.25s ease;
 }
 
+
 .hero-button:hover {
   transform: translateY(-3px);
-  background: #ededed;
+
+  background: #eeeeee;
 }
 
+
 .arrow {
-  font-size: 25px;
+  font-size: 27px;
+
   font-weight: 300;
+
+  line-height: 1;
 }
+
+
+/* ========================================
+   SCROLL INDICATOR
+======================================== */
 
 .scroll-down {
   position: absolute;
 
-  bottom: 25px;
+  bottom: 27px;
   left: 50%;
 
   transform: translateX(-50%);
 
   color: white;
+
   text-decoration: none;
 
-  font-size: 28px;
-  font-weight: 200;
+  font-size: 29px;
 
-  opacity: 0.8;
+  opacity: 0.85;
+
+  z-index: 5;
 }
 
 
-/* =========================
-   HERO — MOBILE
-========================= */
+/* ========================================
+   CONTENT SECTIONS
+======================================== */
+
+.content-section {
+  min-height: 70vh;
+
+  padding: 120px 8%;
+
+  background: #0b0b0b;
+}
+
+
+.content-section:nth-of-type(3) {
+  background: #111111;
+}
+
+
+.section-label {
+  margin-bottom: 22px;
+
+  font-size: 10px;
+
+  letter-spacing: 6px;
+
+  color: #888888;
+}
+
+
+.content-section h2 {
+  margin-bottom: 25px;
+
+  font-size: clamp(45px, 6vw, 80px);
+
+  font-weight: 600;
+}
+
+
+.content-section > p:last-child {
+  max-width: 600px;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  color: #aaaaaa;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 768px) {
 
   .hero {
     align-items: center;
 
-    padding:
-      120px
-      7%
-      70px;
-
-    background-position: 52% center;
+    background-position: 50% center;
   }
 
+
+  .navbar {
+    padding: 28px 7%;
+  }
+
+
+  .logo {
+    font-size: 13px;
+
+    letter-spacing: 4px;
+  }
+
+
+  .nav-links {
+    display: none;
+  }
+
+
   .hero-content {
+    margin-left: 0;
+
+    padding:
+      80px
+      7%
+      0;
+
     max-width: 100%;
   }
 
+
   .hero-label {
-    font-size: 10px;
-    letter-spacing: 5px;
     margin-bottom: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
   }
 
-  .hero h2 {
-    font-size: clamp(54px, 16vw, 75px);
+
+  .hero h1 {
+    font-size: clamp(57px, 17vw, 78px);
+
+    line-height: 0.88;
+
     letter-spacing: -3px;
-    line-height: 0.9;
+
+    margin-bottom: 25px;
   }
+
 
   .hero-description {
-    max-width: 330px;
+    max-width: 320px;
+
+    margin-bottom: 32px;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+
+  .hero-description br {
+    display: none;
+  }
+
+
+  .hero-button {
+    width: 215px;
+
+    height: 60px;
+
+    padding: 0 23px;
 
     font-size: 15px;
   }
 
-  .hero-button {
-    width: 210px;
-    height: 60px;
 
-    font-size: 15px;
+  .scroll-down {
+    bottom: 20px;
+  }
+
+
+  .content-section {
+    padding:
+      90px
+      7%;
   }
 
 }
